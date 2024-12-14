@@ -1,0 +1,233 @@
+$mainColor: #0c2432;
+$accent: #071b27;
+/*BREAKPOINTS*/
+$medium: 960px;
+$small: 768px;
+/**/
+:root {
+  font-family: Inter, system-ui, Avenir, Helvetica, Arial, sans-serif;
+}
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  text-indent: 0;
+  list-style-type: none;
+}
+body {
+  background-color: $mainColor;
+}
+.container {
+  width: 100%;
+  height: 100vh;
+  display: flex;
+  flex-flow: column;
+}
+.header {
+  width: 100%;
+  height: auto;
+  padding: 20px;
+  border-bottom: 2px solid white;
+  text-align: center;
+  color: white;
+  &__title {
+    font-size: 60px;
+    @media screen and (max-width: $medium) {
+      font-size: 45px;
+    }
+    @media screen and (max-width: $small) {
+      font-size: 24px;
+    }
+  }
+  &__subtitle {
+    font-size: 30px;
+    font-weight: 100;
+    @media screen and (max-width: $medium) {
+      font-size: 24px;
+    }
+    @media screen and (max-width: $small) {
+      font-size: 18px;
+    }
+  }
+}
+
+.control {
+  display: flex;
+  height: 100%;
+  gap: 20px;
+  @media screen and (max-width: $small) {
+    flex-flow: column;
+    height: auto;
+  }
+  .jokesSelection {
+    width: 400px;
+    flex-shrink: 0;
+    padding: 20px 20px 15px;
+    border-right: 1px solid rgba(255, 255, 255, 0.5);
+    height: 100%;
+    position: relative;
+    display: flex;
+    flex-flow: column;
+    background-color: rgba(255, 255, 255, 0.9);
+    @media screen and (max-width: $medium) {
+      width: 300px;
+    }
+    @media screen and (max-width: $small) {
+      width: 100%;
+      flex-shrink: initial;
+    }
+
+    .categories {
+      width: 100%;
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      select {
+        width: 100%;
+        padding: 5px;
+        color: black;
+      }
+    }
+    .jokesList {
+      margin-top: 20px;
+      position: relative;
+      height: 100%;
+      .emptyJoker {
+        font-size: 20px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        width: 100%;
+        height: 100%;
+      }
+      .joke {
+        font-size: 14px;
+        border-top: 1px solid $accent;
+        padding: 10px;
+        height: 119px;
+        cursor: pointer;
+        transition: 0.3s ease;
+        @media screen and (max-width: $small) {
+          height: 100px;
+        }
+        &:hover,
+        &:focus,
+        &--active {
+          background-color: $accent;
+          a {
+            color: white;
+          }
+        }
+        &:last-child {
+          border-bottom: 1px solid $accent;
+        }
+        &__link {
+          text-decoration: none;
+          color: black;
+          width: 100%;
+          height: 100%;
+          display: flex;
+          flex-flow: column;
+        }
+        &__footer {
+          margin-top: auto;
+          display: flex;
+          gap: 10px;
+          justify-content: right;
+          .btn {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            border: 0;
+            width: 35px;
+            height: 35px;
+            cursor: pointer;
+            &--good--active {
+              svg {
+                color: green;
+              }
+            }
+            &--bad--active {
+              svg {
+                color: red;
+              }
+            }
+          }
+        }
+      }
+    }
+    .pagination {
+      display: flex;
+      justify-content: space-between;
+      margin-top: auto;
+      @media screen and (max-width: $small) {
+        margin-top: 20px;
+      }
+      &__btn {
+        background: none;
+        border: 0;
+        cursor: pointer;
+        svg {
+          width: 30px;
+          height: 30px;
+        }
+      }
+    }
+  }
+  .jokeDetails {
+    justify-content: center;
+    align-items: center;
+    display: flex;
+    width: 100%;
+    * {
+      color: black;
+    }
+    &__container {
+      width: 80%;
+      display: flex;
+      flex-flow: column;
+      height: auto;
+      padding: 50px;
+      border-radius: 8px;
+      background: rgba(255, 255, 255, 0.9);
+    }
+    &__id {
+      font-size: 24px;
+    }
+    &__entry {
+      margin-top: 20px;
+    }
+    &__show {
+      margin: 20px 0;
+      background-color: $mainColor;
+      color: white;
+      border: 0;
+      padding: 15px;
+      cursor: pointer;
+      transition: 0.3s ease;
+      &:hover,
+      &:focus {
+        transform: scale(1.02);
+        background-color: $accent;
+      }
+    }
+    &__punchline {
+      display: none;
+      &--active {
+        display: block;
+      }
+    }
+  }
+}
+
+footer {
+  margin-top: auto;
+  opacity: 0.5;
+  text-align: right;
+  padding: 8px;
+  border-top: 1px solid rgba(255, 255, 255, 0.5);
+  color: white;
+  @media screen and (max-width: $small) {
+    margin-top: 20px;
+  }
+}
