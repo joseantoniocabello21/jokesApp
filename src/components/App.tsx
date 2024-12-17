@@ -19,7 +19,6 @@ function App() {
     []
   );
   //
-
   //
   const startIndex = (currentPage - 1) * RESULTS_PER_PAGE;
   const endIndex = startIndex + RESULTS_PER_PAGE;
