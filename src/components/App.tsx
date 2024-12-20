@@ -15,7 +15,7 @@ function App() {
   const [currentPage, setCurrentPage] = useState(1);
   const [showJoke, setShowJoke] = useState("");
   const [bookmarkedIds, setBookmarkedIds] = useLocalStorage<ratingT[]>(
-    "bookmarkedIds",
+    "jokeIds",
     []
   );
   //
